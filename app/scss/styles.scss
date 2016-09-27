@@ -1,0 +1,247 @@
+//variables
+
+$primary-color: #000000;
+$font-stack: 'Roboto', sans-serif;
+$green: #90EE90;
+
+$small-width: 320px;
+$medium-width: 768px;
+$large-width: 992px;
+
+//mixins
+
+@mixin small {
+  @media (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large { 
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+
+
+//styling for small screens
+
+@include small {
+
+	button.btn {
+    width: $small-width;
+    }
+
+	.event {
+	width: $small-width;
+	display: inline-block;
+}
+	.calendar, p.task {
+	width: $small-width;
+}
+	#tasksCompleted, #tasksOutstanding {
+	display: inline-block;
+}
+
+#tasksCompleted {
+	padding-right: 20px;
+}
+	
+}
+
+
+
+//styling for medium screens
+
+@include medium {
+
+	button.btn {
+    width: $medium-width/3-1;
+    }
+	
+	.event {
+	width: $medium-width/3-1;
+}
+
+	p.task, .manageBtn, .container2, .tasks, .calendar {
+	width: $medium-width * (2/3)-1;
+}
+
+.container3 {
+ 	width: $medium-width/3-1;
+ 	}
+
+	#event1, #event2, #event3, .container2, .container3  {
+	display: inline-block;vertical-align: top;
+}
+
+
+	.taskReport, #logo, #numberCompleted, #numberOutstanding {
+	float: right;
+	}
+
+	#tasksCompleted, #tasksOutstanding {
+	padding-top:15px;
+	padding-bottom: 40px;
+	}
+
+}	
+
+
+//styling for large screens
+
+@include large {
+
+	button.btn {
+    width: $large-width/3-1;
+    }
+	
+	.event {
+	width: $large-width/3-1;
+}
+
+	p.task, .manageBtn, .container2, .tasks, .calendar {
+	width: $large-width * (2/3)-1;
+}
+
+.container3 {
+ 	width: $large-width/3-1;
+ 	}
+
+	#event1, #event2, #event3, .container2, .container3  {
+	display: inline-block;vertical-align: top;
+}
+
+
+	.taskReport, #logo, #numberCompleted, #numberOutstanding {
+	float: right;
+	}
+
+	#tasksCompleted, #tasksOutstanding {
+	padding-top:15px;
+	padding-bottom: 40px;
+	}
+
+}	
+
+
+
+body {
+
+  font-family: $font-stack;
+  color: $primary-color;
+}
+
+
+
+a 	{
+	color: $primary-color;
+	text-decoration: none;
+    text-transform: uppercase;
+    font-size: 130%;
+
+}
+
+h1, p.subject {
+	font-size: 130%;
+}
+
+p.message, p.task {
+	font-size:80%;
+}
+
+
+a:hover {
+	border-bottom: 2px solid $green;
+    padding-bottom: 3px;
+}
+
+
+button.btn {
+	background-color: transparent;
+	color: $primary-color;
+	font-size: 110%;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+//padding
+
+.container3, #logo, #date, .header, .greetings, .dateAndTime, h1.dateAndTime, .event, .tasks, ul.tasks, .firstTask, .secondTask, .subject, .time {
+padding-bottom: 20px;
+}
+
+.event, .tasks, .container2, .container3, #name, .dateAndTime, p#tasksOutstanding, p#numberCompleted, p#numberOutstanding {
+padding-top: 20px;	
+}
+
+
+
+//font size & color
+
+#time {
+	font-size: 350%;
+}
+
+#name {
+	font-size: 200%;
+}
+
+p.subject, p.taskName {
+font-size: 120%;
+}
+
+p#numberCompleted {
+	color: $green;
+}
+
+p#numberOutstanding {
+	color: #4682B4;
+}
+
+
+
+ .time {
+ font-style: italic;
+ width: 50px;
+ display: inline-block;
+ vertical-align: top;
+ border-bottom: 2px solid $green;
+ padding-bottom: 3px;
+ }
+
+ #numberCompleted, #numberOutstanding {
+ font-size: 150%;
+ }
+
+
+
+//inline blocks
+
+
+
+li {
+    display: inline-block;
+    text-align: center;
+    padding: 7px;
+}
+
+li.taskName {
+	list-style-type: circle;
+}
+
+
+//lists
+
+
+ul li:nth-of-type(1n+8) {
+display: none;
+}
